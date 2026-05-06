@@ -16,6 +16,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Leaflet Map JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
         tailwind.config = {
             theme: {
@@ -39,7 +43,7 @@
             </div>
             <div class="hidden md:block text-right">
                 <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Smart Logistics Engine</p>
-                <p class="text-xs text-indigo-400 font-medium">0/1 Knapsack Optimization</p>
+                <p class="text-xs text-indigo-400 font-medium">0/1 Knapsack + TSP Optimization</p>
             </div>
         </div>
     </header>
@@ -50,34 +54,48 @@
         <section id="configSection">
             <h2 class="text-2xl font-bold mb-6"><i class="fas fa-sliders-h mr-3 text-indigo-500"></i>Configuration</h2>
             
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
                 <!-- Truck Capacity Card -->
                 <div class="lg:col-span-1">
                     <div class="stat-card h-full">
                         <label for="truckCapacity" class="stat-label">Truck Capacity (kg)</label>
                         <div class="relative mt-2">
-                            <input type="number" id="truckCapacity" class="text-xl font-bold" value="50" min="1">
+                            <input type="number" id="truckCapacity" class="text-xl font-bold" value="500" min="1">
                             <div class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 font-bold">KG</div>
                         </div>
-                        <p class="text-xs text-slate-500 mt-4">Total weight the truck can carry for this trip.</p>
+                    </div>
+                </div>
+
+                <!-- Warehouse Address Card -->
+                <div class="lg:col-span-2">
+                    <div class="stat-card h-full">
+                        <label for="warehouseAddress" class="stat-label">Warehouse (Origin) Address</label>
+                        <div class="relative mt-2">
+                            <input type="text" id="warehouseAddress" class="text-sm font-bold" value="Connaught Place, Delhi">
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500">
+                                <i class="fas fa-warehouse"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Action Toolbar -->
-                <div class="lg:col-span-2 flex flex-wrap gap-3 items-center justify-end">
-                    <button onclick="loadSampleData()" class="btn btn-primary bg-indigo-600">
+                <div class="lg:col-span-1 flex flex-col gap-2">
+                    <button onclick="loadSampleData()" class="btn btn-primary bg-indigo-600 text-xs py-2">
                         <i class="fas fa-database mr-2"></i> Sample Data
                     </button>
-                    <button onclick="clearPackages()" class="btn bg-slate-700 text-white hover:bg-slate-600">
+                    <button onclick="clearPackages()" class="btn bg-slate-700 text-white hover:bg-slate-600 text-xs py-2">
                         <i class="fas fa-trash-alt mr-2"></i> Clear
                     </button>
-                    <button onclick="saveData()" class="btn bg-amber-600 text-white hover:bg-amber-700">
-                        <i class="fas fa-save mr-2"></i> Save
-                    </button>
-                    <label class="btn bg-purple-600 text-white hover:bg-purple-700 cursor-pointer">
-                        <i class="fas fa-file-import mr-2"></i> Load Files
-                        <input type="file" accept=".json" onchange="loadData(event)" multiple class="hidden">
-                    </label>
+                    <div class="flex gap-2">
+                        <button onclick="saveData()" class="btn bg-amber-600 text-white hover:bg-amber-700 text-xs py-2 flex-1">
+                            <i class="fas fa-save mr-1"></i> Save
+                        </button>
+                        <label class="btn bg-purple-600 text-white hover:bg-purple-700 text-xs py-2 flex-1 cursor-pointer">
+                            <i class="fas fa-file-import mr-1"></i> Load
+                            <input type="file" accept=".json" onchange="loadData(event)" multiple class="hidden">
+                        </label>
+                    </div>
                 </div>
             </div>
 
@@ -89,8 +107,8 @@
                     </span>
                     Add New Package
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div>
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div class="md:col-span-1">
                         <label class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Package ID</label>
                         <input type="text" id="newPackageId" placeholder="e.g., PKG-001">
                     </div>
@@ -102,9 +120,18 @@
                         <label class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Profit (₹)</label>
                         <input type="number" id="newPackageProfit" placeholder="0.0" min="0.1" step="0.1">
                     </div>
+                    <div class="lg:col-span-2">
+                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Delivery Address</label>
+                        <div class="relative">
+                            <input type="text" id="newPackageAddress" placeholder="e.g., Sector 15 Noida">
+                            <div id="geocodingIndicator" class="hidden absolute right-3 top-1/2 -translate-y-1/2">
+                                <i class="fas fa-circle-notch fa-spin text-indigo-500"></i>
+                            </div>
+                        </div>
+                    </div>
                     <div class="flex items-end">
-                        <button onclick="addPackageForm()" class="btn btn-success w-full py-3">
-                            <i class="fas fa-plus-circle mr-2"></i> Add Package
+                        <button id="addPackageBtn" onclick="addPackageForm()" class="btn btn-success w-full py-3">
+                            <i class="fas fa-plus-circle mr-2"></i> Add
                         </button>
                     </div>
                 </div>
@@ -125,7 +152,7 @@
                     <table id="packageTable">
                         <thead>
                             <tr>
-                                <th>Package ID</th>
+                                <th>Package Details</th>
                                 <th>Weight (kg)</th>
                                 <th>Profit (₹)</th>
                                 <th>P/W Ratio</th>
@@ -147,10 +174,7 @@
             <!-- Main Actions -->
             <div class="mt-8 flex flex-col md:flex-row gap-4">
                 <button onclick="optimizeLoad()" class="btn btn-primary py-4 px-8 text-lg pulse flex-1">
-                    <i class="fas fa-rocket mr-3"></i> Optimize Load Allocation
-                </button>
-                <button onclick="compareAlgorithms()" class="btn bg-slate-800 text-white hover:bg-slate-700 border border-slate-700 py-4 px-8 text-lg flex-1">
-                    <i class="fas fa-chart-bar mr-3"></i> Compare Algorithms
+                    <i class="fas fa-rocket mr-3"></i> Run Dispatch Optimization
                 </button>
             </div>
         </section>
@@ -179,10 +203,14 @@
 
             <!-- Selected Packages -->
             <div class="mt-8">
-                <h3 class="text-lg font-semibold mb-4">Allocated Packages</h3>
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">Allocated Packages</h3>
+                    <a href="driver.html" target="_blank" class="btn bg-indigo-600 text-white hover:bg-indigo-700 px-6 py-2 shadow-lg shadow-indigo-500/20">
+                        <i class="fas fa-external-link-alt mr-2"></i> Launch Driver Portal
+                    </a>
+                </div>
                 <div id="selectedPackages" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <!-- Selected packages will be displayed here -->
-                </div>
             </div>
         </section>
 

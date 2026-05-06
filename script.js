@@ -9,12 +9,18 @@ let packageIdCounter = 1;
 let dpTable = [];
 let selectedPackages = [];
 
+// --- Global Config ---
+let warehouseLocation = { lat: 28.6139, lng: 77.2090, address: 'Connaught Place, Delhi' };
+
 // --- Data Models ---
 class Package {
-    constructor(id, weight, profit) {
+    constructor(id, weight, profit, lat, lng, address) {
         this.id = id;
         this.weight = weight;
         this.profit = profit;
+        this.lat = parseFloat(lat);
+        this.lng = parseFloat(lng);
+        this.address = address || `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
         this.ratio = profit / weight;
     }
 }
@@ -25,8 +31,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initializeApp() {
+    initMap();
     loadSampleData();
     setupEventListeners();
+}
+
+function initializeApp() {
+    loadSampleData();
+    setupEventListeners();
+}
+
+/**
+ * Geocodes an address string to coordinates
+ */
+async function geocodeAddress(address) {
+    if (!address) return null;
+    // Check if it's already coordinates
+    const coordMatch = address.match(/(-?\d+\.\d+),\s*(-?\d+\.\d+)/);
+    if (coordMatch) return { lat: parseFloat(coordMatch[1]), lon: parseFloat(coordMatch[2]) };
+
+    try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&limit=1`);
+        const data = await response.json();
+        if (data && data.length > 0) {
+            return { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon), name: data[0].display_name };
+        }
+    } catch (error) {
+        console.error("Geocoding error:", error);
+    }
+    return null;
 }
 
 function setupEventListeners() {
@@ -47,34 +80,56 @@ function setupEventListeners() {
 /**
  * Adds a new package from the form inputs
  */
-function addPackageForm() {
+async function addPackageForm() {
     const idInput = document.getElementById('newPackageId');
     const weightInput = document.getElementById('newPackageWeight');
     const profitInput = document.getElementById('newPackageProfit');
+    const addressInput = document.getElementById('newPackageAddress');
+    const btn = document.getElementById('addPackageBtn');
+    const indicator = document.getElementById('geocodingIndicator');
     
     const packageId = idInput.value.trim();
     const weight = parseFloat(weightInput.value);
     const profit = parseFloat(profitInput.value);
+    const address = addressInput.value.trim();
     
-    if (!validatePackageInput(packageId, weight, profit)) return;
+    if (!validatePackageInput(packageId, weight, profit, address)) return;
+
+    // Show loading state
+    btn.disabled = true;
+    indicator.classList.remove('hidden');
     
-    const newPackage = new Package(packageId, weight, profit);
+    const coords = await geocodeAddress(address);
+    
+    btn.disabled = false;
+    indicator.classList.add('hidden');
+
+    if (!coords) {
+        showNotification("Could not find location. Please be more specific.", "error");
+        return;
+    }
+    
+    const newPackage = new Package(packageId, weight, profit, coords.lat, coords.lon, coords.name || address);
     packages.push(newPackage);
     
     updatePackageTable();
-    clearInputs([weightInput, profitInput]);
+    clearInputs([weightInput, profitInput, addressInput]);
     updateNextPackageId();
     
     showNotification(`Package "${packageId}" added successfully!`, 'success');
 }
 
-function validatePackageInput(id, weight, profit) {
+function validatePackageInput(id, weight, profit, address) {
     if (!id) {
         showNotification('Please enter a Package ID.', 'error');
         return false;
     }
     if (isNaN(weight) || isNaN(profit) || weight <= 0 || profit <= 0) {
         showNotification('Enter valid positive numbers for weight and profit.', 'error');
+        return false;
+    }
+    if (!address) {
+        showNotification('Please enter a delivery address.', 'error');
         return false;
     }
     if (packages.some(pkg => pkg.id === id)) {
@@ -125,7 +180,49 @@ function updatePackageTable() {
         packages.forEach(pkg => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td class="font-bold text-indigo-400">${pkg.id}</td>
+                <td>
+                    <div class="font-bold text-indigo-400">${pkg.id}</div>
+                    <div class="text-[10px] text-slate-500 truncate max-w-[200px]" title="${pkg.address}">${pkg.address}</div>
+                </td>
+                <td>${pkg.weight} kg</td>
+                <td class="text-emerald-400 font-bold">₹${pkg.profit}</td>
+                <td>
+                    <span class="badge ${getRatioBadgeClass(pkg.ratio)}">
+                        ${pkg.ratio.toFixed(2)}
+                    </span>
+                </td>
+                <td class="text-right">
+                    <button onclick="removePackage('${pkg.id}')" class="text-slate-500 hover:text-red-400 transition p-2">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+}
+
+function updatePackageTable() {
+    const tbody = document.getElementById('packageTableBody');
+    const emptyState = document.getElementById('emptyStateMessage');
+    const table = document.getElementById('packageTable');
+    
+    tbody.innerHTML = '';
+    
+    if (packages.length === 0) {
+        table.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+    } else {
+        table.classList.remove('hidden');
+        emptyState.classList.add('hidden');
+        
+        packages.forEach(pkg => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>
+                    <div class="font-bold text-indigo-400">${pkg.id}</div>
+                    <div class="text-[10px] text-slate-500 truncate max-w-[200px]" title="${pkg.address}">${pkg.address}</div>
+                </td>
                 <td>${pkg.weight} kg</td>
                 <td class="text-emerald-400 font-bold">₹${pkg.profit}</td>
                 <td>
@@ -161,20 +258,22 @@ function clearPackages() {
     packageIdCounter = 1;
     updatePackageTable();
     updateNextPackageId();
+    localStorage.removeItem('olap_active_route');
     hideSections(['resultsSection', 'dpTableSection', 'comparisonSection']);
     showNotification('Inventory cleared.', 'success');
 }
 
 function loadSampleData() {
+    // Sample data with real addresses in NCR
     packages = [
-        new Package('PKG-001', 10, 60),
-        new Package('PKG-002', 20, 100),
-        new Package('PKG-003', 30, 120),
-        new Package('PKG-004', 15, 80),
-        new Package('PKG-005', 25, 110),
-        new Package('PKG-006', 12, 70),
-        new Package('PKG-007', 18, 90),
-        new Package('PKG-008', 8, 45)
+        new Package('PKG-001', 10, 60, 28.625, 77.210, 'Connaught Place, Delhi'),
+        new Package('PKG-002', 20, 100, 28.610, 77.230, 'India Gate, Delhi'),
+        new Package('PKG-003', 30, 120, 28.590, 77.215, 'Lodhi Garden, Delhi'),
+        new Package('PKG-004', 15, 80, 28.635, 77.190, 'Karol Bagh, Delhi'),
+        new Package('PKG-005', 25, 110, 28.600, 77.180, 'Chanakyapuri, Delhi'),
+        new Package('PKG-006', 12, 70, 28.650, 77.225, 'Old Delhi Railway Station'),
+        new Package('PKG-007', 18, 90, 28.580, 77.250, 'Humayun\'s Tomb, Delhi'),
+        new Package('PKG-008', 8, 45, 28.615, 77.200, 'Palika Bazaar, Delhi')
     ];
     updatePackageTable();
     updateNextPackageId();
@@ -244,12 +343,19 @@ function greedyKnapsack(items, capacity) {
 
 // --- Action Handlers ---
 
-function optimizeLoad() {
+async function optimizeLoad() {
     const capacity = parseInt(document.getElementById('truckCapacity').value);
+    const warehouseAddr = document.getElementById('warehouseAddress').value;
     
     if (packages.length === 0) return showNotification('Add packages first.', 'error');
     if (isNaN(capacity) || capacity <= 0) return showNotification('Invalid capacity.', 'error');
     
+    // Geocode Warehouse first
+    const whCoords = await geocodeAddress(warehouseAddr);
+    if (whCoords) {
+        warehouseLocation = { lat: whCoords.lat, lng: whCoords.lon, address: whCoords.name || warehouseAddr };
+    }
+
     const result = solveKnapsack(packages, capacity);
     dpTable = result.table;
     selectedPackages = result.selected;
@@ -260,11 +366,133 @@ function optimizeLoad() {
     renderResults(result.maxProfit, totalWeight, efficiency);
     renderDPTable(capacity);
     
+    // TSP Optimization for the selected items
+    if (selectedPackages.length > 0) {
+        const route = solveTSP(selectedPackages);
+        localStorage.setItem('olap_active_route', JSON.stringify(route));
+    }
+
     document.getElementById('resultsSection').classList.remove('hidden');
     document.getElementById('dpTableSection').classList.remove('hidden');
     
-    showNotification('Optimization complete!', 'success');
+    showNotification('Dispatch optimization complete!', 'success');
     window.scrollTo({ top: document.getElementById('resultsSection').offsetTop - 100, behavior: 'smooth' });
+}
+
+/**
+ * Traveling Salesperson Algorithm using Nearest Neighbor for Real-time responsiveness
+ */
+function solveTSP(items) {
+    const points = [{ lat: warehouseLocation.lat, lng: warehouseLocation.lng }, ...items];
+    const n = points.length;
+    const visited = new Array(n).fill(false);
+    const path = [0]; // Start at warehouse
+    visited[0] = true;
+    
+    let current = 0;
+    while (path.length < n) {
+        let next = -1;
+        let minDist = Infinity;
+        
+        for (let i = 0; i < n; i++) {
+            if (!visited[i]) {
+                const d = getDistance([points[current].lat, points[current].lng], [points[i].lat, points[i].lng]);
+                if (d < minDist) {
+                    minDist = d;
+                    next = i;
+                }
+            }
+        }
+        
+        visited[next] = true;
+        path.push(next);
+        current = next;
+    }
+    
+    path.push(0); // Return to warehouse
+    
+    // Map indices back to objects
+    return path.map(idx => {
+        if (idx === 0) return { id: 'WAREHOUSE', address: warehouseLocation.address, lat: warehouseLocation.lat, lng: warehouseLocation.lng };
+        return items[idx - 1];
+    });
+}
+
+function getDistance(p1, p2) {
+    // Haversine formula for real-world distance
+    const R = 6371; // Earth radius in km
+    const dLat = (p2[0] - p1[0]) * Math.PI / 180;
+    const dLon = (p2[1] - p1[1]) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(p1[0] * Math.PI / 180) * Math.cos(p2[0] * Math.PI / 180) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+}
+
+function renderRoute(route) {
+    if (routeLine) map.removeLayer(routeLine);
+    
+    const coords = route.map(p => [p.lat, p.lng]);
+    
+    routeLine = L.polyline(coords, {
+        color: '#6366f1',
+        weight: 4,
+        opacity: 0.8,
+        dashArray: '10, 10',
+        lineCap: 'round'
+    }).addTo(map);
+    
+    map.fitBounds(routeLine.getBounds(), { padding: [50, 50] });
+    
+    // Render Itinerary
+    const itineraryContainer = document.getElementById('deliveryItinerary');
+    itineraryContainer.innerHTML = '';
+    
+    route.forEach((stop, index) => {
+        const isWarehouse = stop.id === 'WAREHOUSE';
+        const card = document.createElement('div');
+        card.className = `p-4 rounded-xl border flex items-center gap-4 transition-all hover:scale-[1.02] ${
+            isWarehouse ? 'bg-indigo-500/10 border-indigo-500/30' : 'bg-slate-800/40 border-slate-700/50'
+        }`;
+        
+        card.innerHTML = `
+            <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs ${
+                isWarehouse ? 'bg-indigo-500 text-white' : 'bg-slate-700 text-slate-300'
+            }">
+                ${index + 1}
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-sm ${isWarehouse ? 'text-indigo-400' : 'text-slate-300'}">${stop.id}</span>
+                    ${index === 1 ? '<span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-md font-bold">NEXT STOP</span>' : ''}
+                </div>
+                <div class="text-[10px] text-slate-500 truncate" title="${stop.address}">${stop.address}</div>
+            </div>
+            ${index < route.length - 1 ? '<i class="fas fa-arrow-right text-slate-700 text-xs"></i>' : ''}
+        `;
+        itineraryContainer.appendChild(card);
+    });
+
+    // Add distance info to results
+    let totalDist = 0;
+    for (let i = 0; i < route.length - 1; i++) {
+        totalDist += getDistance([route[i].lat, route[i].lng], [route[i+1].lat, route[i+1].lng]);
+    }
+    
+    // Remove existing distance card if any
+    const existingDist = document.getElementById('totalDistCard');
+    if (existingDist) existingDist.remove();
+
+    const distCard = document.createElement('div');
+    distCard.id = 'totalDistCard';
+    distCard.className = 'stat-card mt-4 border-indigo-500/30';
+    distCard.innerHTML = `
+        <div class="stat-label">Total Delivery Distance</div>
+        <div class="stat-value text-indigo-400">${totalDist.toFixed(2)} km</div>
+        <div class="text-xs text-slate-500 italic">Optimized sequence starting from Warehouse</div>
+    `;
+    document.getElementById('totalProfit').parentElement.parentElement.appendChild(distCard);
 }
 
 function compareAlgorithms() {
@@ -461,15 +689,33 @@ async function loadData(event) {
             }
 
             if (data.packages && Array.isArray(data.packages)) {
-                data.packages.forEach(p => {
-                    // Check for duplicate IDs before adding
+                // Use a series of geocoding calls if coordinates are missing
+                for (const p of data.packages) {
                     if (!packages.some(pkg => pkg.id === p.id)) {
-                        packages.push(new Package(p.id, p.weight, p.profit));
+                        let lat = p.lat;
+                        let lng = p.lng;
+                        let address = p.address || p.location;
+
+                        // If no coords but address is present, geocode it
+                        if ((isNaN(lat) || isNaN(lng)) && address) {
+                            const coords = await geocodeAddress(address);
+                            if (coords) {
+                                lat = coords.lat;
+                                lng = coords.lon;
+                                address = coords.name || address;
+                            }
+                        }
+
+                        // Final fallback to warehouse if still no coords
+                        lat = lat || warehouseLocation.lat;
+                        lng = lng || warehouseLocation.lng;
+
+                        packages.push(new Package(p.id, p.weight, p.profit, lat, lng, address));
                         totalPackagesAdded++;
                     } else {
                         duplicateCount++;
                     }
-                });
+                }
             }
             filesProcessed++;
         }
