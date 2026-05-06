@@ -601,9 +601,25 @@ async function loadData(event) {
                 const csvPackages = parseCSV(data);
                 for (const p of csvPackages) {
                     if (!packages.some(pkg => pkg.id === p.id)) {
-                        let coords = await geocodeAddress(p.location);
-                        packages.push(new Package(p.id, p.weight, p.profit, coords?.lat, coords?.lon, p.location));
+                        let address = p.location || p.address || "Unknown";
+                        
+                        // Add package immediately with warehouse fallback
+                        const pkg = new Package(p.id, p.weight, p.profit, warehouseLocation.lat, warehouseLocation.lng, address);
+                        pkg.isGeocoding = true;
+                        packages.push(pkg);
                         totalPackagesAdded++;
+
+                        // Geocode in background to avoid API bans
+                        setTimeout(async () => {
+                            const coords = await geocodeAddress(address);
+                            if (coords) {
+                                pkg.lat = coords.lat;
+                                pkg.lng = coords.lon;
+                                pkg.address = coords.name || address;
+                            }
+                            pkg.isGeocoding = false;
+                            updatePackageTable();
+                        }, totalPackagesAdded * 250); // 250ms stagger
                     } else duplicateCount++;
                 }
             } else {
@@ -615,13 +631,23 @@ async function loadData(event) {
                     for (const p of data.packages) {
                         if (!packages.some(pkg => pkg.id === p.id)) {
                             let lat = p.lat, lng = p.lng, address = p.address || p.location;
+                            const pkg = new Package(p.id, p.weight, p.profit, lat || warehouseLocation.lat, lng || warehouseLocation.lng, address);
+                            
                             if ((isNaN(lat) || isNaN(lng)) && address) {
-                                const coords = await geocodeAddress(address);
-                                if (coords) { lat = coords.lat; lng = coords.lon; address = coords.name || address; }
+                                pkg.isGeocoding = true;
+                                setTimeout(async () => {
+                                    const coords = await geocodeAddress(address);
+                                    if (coords) {
+                                        pkg.lat = coords.lat;
+                                        pkg.lng = coords.lon;
+                                        pkg.address = coords.name || address;
+                                    }
+                                    pkg.isGeocoding = false;
+                                    updatePackageTable();
+                                }, totalPackagesAdded * 250);
                             }
-                            lat = lat || warehouseLocation.lat;
-                            lng = lng || warehouseLocation.lng;
-                            packages.push(new Package(p.id, p.weight, p.profit, lat, lng, address));
+                            
+                            packages.push(pkg);
                             totalPackagesAdded++;
                         } else duplicateCount++;
                     }
