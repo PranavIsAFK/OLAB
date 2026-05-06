@@ -647,7 +647,29 @@ function saveData() {
 }
 
 /**
- * Loads and merges package data from one or more JSON files
+ * Simple CSV Parser for Package Data
+ */
+function parseCSV(text) {
+    const lines = text.split('\n').filter(l => l.trim() !== '');
+    const header = lines[0].toLowerCase().split(',');
+    
+    return lines.slice(1).map(line => {
+        const values = line.split(',');
+        const p = {};
+        header.forEach((h, i) => {
+            const key = h.trim();
+            const val = values[i]?.trim();
+            if (key.includes('id')) p.id = val;
+            else if (key.includes('weight')) p.weight = parseFloat(val);
+            else if (key.includes('profit')) p.profit = parseFloat(val);
+            else if (key.includes('location') || key.includes('address')) p.location = val;
+        });
+        return p;
+    });
+}
+
+/**
+ * Loads and merges package data from one or more JSON/CSV files
  */
 async function loadData(event) {
     const files = event.target.files;
@@ -661,11 +683,12 @@ async function loadData(event) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.onload = (e) => {
-                try {
-                    const data = JSON.parse(e.target.result);
-                    resolve(data);
-                } catch (err) {
-                    reject(new Error(`Invalid JSON in file: ${file.name}`));
+                const text = e.target.result;
+                if (file.name.endsWith('.json')) {
+                    try { resolve(JSON.parse(text)); } 
+                    catch (err) { reject(new Error(`Invalid JSON: ${file.name}`)); }
+                } else {
+                    resolve(text); // Return raw text for CSV
                 }
             };
             reader.onerror = () => reject(new Error(`Failed to read file: ${file.name}`));
@@ -677,37 +700,34 @@ async function loadData(event) {
         for (let i = 0; i < files.length; i++) {
             const data = await readFile(files[i]);
             
-            // Update capacity from the first file if provided
-            if (i === 0 && data.capacity) {
-                document.getElementById('truckCapacity').value = data.capacity;
-            }
-
-            if (data.packages && Array.isArray(data.packages)) {
-                // Use a series of geocoding calls if coordinates are missing
-                for (const p of data.packages) {
+            // Check if it's CSV (it will return an array of packages)
+            if (files[i].name.endsWith('.csv')) {
+                const csvPackages = parseCSV(data);
+                for (const p of csvPackages) {
                     if (!packages.some(pkg => pkg.id === p.id)) {
-                        let lat = p.lat;
-                        let lng = p.lng;
-                        let address = p.address || p.location;
-
-                        // If no coords but address is present, geocode it
-                        if ((isNaN(lat) || isNaN(lng)) && address) {
-                            const coords = await geocodeAddress(address);
-                            if (coords) {
-                                lat = coords.lat;
-                                lng = coords.lon;
-                                address = coords.name || address;
-                            }
-                        }
-
-                        // Final fallback to warehouse if still no coords
-                        lat = lat || warehouseLocation.lat;
-                        lng = lng || warehouseLocation.lng;
-
-                        packages.push(new Package(p.id, p.weight, p.profit, lat, lng, address));
+                        let coords = await geocodeAddress(p.location);
+                        packages.push(new Package(p.id, p.weight, p.profit, coords?.lat, coords?.lon, p.location));
                         totalPackagesAdded++;
-                    } else {
-                        duplicateCount++;
+                    } else duplicateCount++;
+                }
+            } else {
+                // Handle JSON
+                if (i === 0 && data.capacity) {
+                    document.getElementById('truckCapacity').value = data.capacity;
+                }
+                if (data.packages && Array.isArray(data.packages)) {
+                    for (const p of data.packages) {
+                        if (!packages.some(pkg => pkg.id === p.id)) {
+                            let lat = p.lat, lng = p.lng, address = p.address || p.location;
+                            if ((isNaN(lat) || isNaN(lng)) && address) {
+                                const coords = await geocodeAddress(address);
+                                if (coords) { lat = coords.lat; lng = coords.lon; address = coords.name || address; }
+                            }
+                            lat = lat || warehouseLocation.lat;
+                            lng = lng || warehouseLocation.lng;
+                            packages.push(new Package(p.id, p.weight, p.profit, lat, lng, address));
+                            totalPackagesAdded++;
+                        } else duplicateCount++;
                     }
                 }
             }

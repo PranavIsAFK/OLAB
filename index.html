@@ -17,9 +17,9 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Leaflet Map CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
     <!-- Leaflet Map JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script>
         tailwind.config = {
             theme: {
@@ -92,8 +92,8 @@
                             <i class="fas fa-save mr-1"></i> Save
                         </button>
                         <label class="btn bg-purple-600 text-white hover:bg-purple-700 text-xs py-2 flex-1 cursor-pointer">
-                            <i class="fas fa-file-import mr-1"></i> Load
-                            <input type="file" accept=".json" onchange="loadData(event)" multiple class="hidden">
+                            <i class="fas fa-file-import mr-1"></i> Load (JSON/CSV)
+                            <input type="file" id="fileInput" accept=".json,.csv" onchange="loadData(event)" multiple class="hidden">
                         </label>
                     </div>
                 </div>
@@ -211,6 +211,7 @@
                 </div>
                 <div id="selectedPackages" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <!-- Selected packages will be displayed here -->
+                </div>
             </div>
         </section>
 
@@ -287,6 +288,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>
