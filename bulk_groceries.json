@@ -1,0 +1,280 @@
+{
+    "capacity": 1200,
+    "packages": [
+        {
+            "id": "GROC-001",
+            "weight": 20,
+            "profit": 291
+        },
+        {
+            "id": "GROC-002",
+            "weight": 9,
+            "profit": 464
+        },
+        {
+            "id": "GROC-003",
+            "weight": 5,
+            "profit": 486
+        },
+        {
+            "id": "GROC-004",
+            "weight": 24,
+            "profit": 222
+        },
+        {
+            "id": "GROC-005",
+            "weight": 22,
+            "profit": 256
+        },
+        {
+            "id": "GROC-006",
+            "weight": 9,
+            "profit": 383
+        },
+        {
+            "id": "GROC-007",
+            "weight": 15,
+            "profit": 271
+        },
+        {
+            "id": "GROC-008",
+            "weight": 22,
+            "profit": 368
+        },
+        {
+            "id": "GROC-009",
+            "weight": 8,
+            "profit": 260
+        },
+        {
+            "id": "GROC-010",
+            "weight": 15,
+            "profit": 437
+        },
+        {
+            "id": "GROC-011",
+            "weight": 19,
+            "profit": 512
+        },
+        {
+            "id": "GROC-012",
+            "weight": 17,
+            "profit": 138
+        },
+        {
+            "id": "GROC-013",
+            "weight": 21,
+            "profit": 288
+        },
+        {
+            "id": "GROC-014",
+            "weight": 20,
+            "profit": 412
+        },
+        {
+            "id": "GROC-015",
+            "weight": 14,
+            "profit": 415
+        },
+        {
+            "id": "GROC-016",
+            "weight": 16,
+            "profit": 341
+        },
+        {
+            "id": "GROC-017",
+            "weight": 22,
+            "profit": 125
+        },
+        {
+            "id": "GROC-018",
+            "weight": 20,
+            "profit": 323
+        },
+        {
+            "id": "GROC-019",
+            "weight": 18,
+            "profit": 399
+        },
+        {
+            "id": "GROC-020",
+            "weight": 25,
+            "profit": 547
+        },
+        {
+            "id": "GROC-021",
+            "weight": 15,
+            "profit": 353
+        },
+        {
+            "id": "GROC-022",
+            "weight": 14,
+            "profit": 178
+        },
+        {
+            "id": "GROC-023",
+            "weight": 25,
+            "profit": 430
+        },
+        {
+            "id": "GROC-024",
+            "weight": 11,
+            "profit": 352
+        },
+        {
+            "id": "GROC-025",
+            "weight": 18,
+            "profit": 238
+        },
+        {
+            "id": "GROC-026",
+            "weight": 18,
+            "profit": 444
+        },
+        {
+            "id": "GROC-027",
+            "weight": 6,
+            "profit": 484
+        },
+        {
+            "id": "GROC-028",
+            "weight": 9,
+            "profit": 403
+        },
+        {
+            "id": "GROC-029",
+            "weight": 18,
+            "profit": 437
+        },
+        {
+            "id": "GROC-030",
+            "weight": 21,
+            "profit": 299
+        },
+        {
+            "id": "GROC-031",
+            "weight": 17,
+            "profit": 221
+        },
+        {
+            "id": "GROC-032",
+            "weight": 23,
+            "profit": 560
+        },
+        {
+            "id": "GROC-033",
+            "weight": 9,
+            "profit": 577
+        },
+        {
+            "id": "GROC-034",
+            "weight": 12,
+            "profit": 493
+        },
+        {
+            "id": "GROC-035",
+            "weight": 7,
+            "profit": 252
+        },
+        {
+            "id": "GROC-036",
+            "weight": 7,
+            "profit": 153
+        },
+        {
+            "id": "GROC-037",
+            "weight": 21,
+            "profit": 376
+        },
+        {
+            "id": "GROC-038",
+            "weight": 17,
+            "profit": 196
+        },
+        {
+            "id": "GROC-039",
+            "weight": 7,
+            "profit": 362
+        },
+        {
+            "id": "GROC-040",
+            "weight": 18,
+            "profit": 514
+        },
+        {
+            "id": "GROC-041",
+            "weight": 18,
+            "profit": 312
+        },
+        {
+            "id": "GROC-042",
+            "weight": 18,
+            "profit": 301
+        },
+        {
+            "id": "GROC-043",
+            "weight": 21,
+            "profit": 467
+        },
+        {
+            "id": "GROC-044",
+            "weight": 13,
+            "profit": 381
+        },
+        {
+            "id": "GROC-045",
+            "weight": 5,
+            "profit": 152
+        },
+        {
+            "id": "GROC-046",
+            "weight": 13,
+            "profit": 243
+        },
+        {
+            "id": "GROC-047",
+            "weight": 19,
+            "profit": 197
+        },
+        {
+            "id": "GROC-048",
+            "weight": 16,
+            "profit": 140
+        },
+        {
+            "id": "GROC-049",
+            "weight": 5,
+            "profit": 406
+        },
+        {
+            "id": "GROC-050",
+            "weight": 16,
+            "profit": 302
+        },
+        {
+            "id": "GROC-051",
+            "weight": 7,
+            "profit": 429
+        },
+        {
+            "id": "GROC-052",
+            "weight": 7,
+            "profit": 266
+        },
+        {
+            "id": "GROC-053",
+            "weight": 9,
+            "profit": 449
+        },
+        {
+            "id": "GROC-054",
+            "weight": 23,
+            "profit": 513
+        },
+        {
+            "id": "GROC-055",
+            "weight": 20,
+            "profit": 574
+        }
+    ]
+}

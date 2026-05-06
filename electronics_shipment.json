@@ -1,0 +1,280 @@
+{
+    "capacity": 1000,
+    "packages": [
+        {
+            "id": "ELEC-001",
+            "weight": 8,
+            "profit": 313
+        },
+        {
+            "id": "ELEC-002",
+            "weight": 6,
+            "profit": 549
+        },
+        {
+            "id": "ELEC-003",
+            "weight": 13,
+            "profit": 143
+        },
+        {
+            "id": "ELEC-004",
+            "weight": 7,
+            "profit": 218
+        },
+        {
+            "id": "ELEC-005",
+            "weight": 13,
+            "profit": 546
+        },
+        {
+            "id": "ELEC-006",
+            "weight": 19,
+            "profit": 106
+        },
+        {
+            "id": "ELEC-007",
+            "weight": 9,
+            "profit": 537
+        },
+        {
+            "id": "ELEC-008",
+            "weight": 13,
+            "profit": 387
+        },
+        {
+            "id": "ELEC-009",
+            "weight": 24,
+            "profit": 108
+        },
+        {
+            "id": "ELEC-010",
+            "weight": 8,
+            "profit": 593
+        },
+        {
+            "id": "ELEC-011",
+            "weight": 6,
+            "profit": 483
+        },
+        {
+            "id": "ELEC-012",
+            "weight": 24,
+            "profit": 207
+        },
+        {
+            "id": "ELEC-013",
+            "weight": 24,
+            "profit": 521
+        },
+        {
+            "id": "ELEC-014",
+            "weight": 14,
+            "profit": 405
+        },
+        {
+            "id": "ELEC-015",
+            "weight": 15,
+            "profit": 587
+        },
+        {
+            "id": "ELEC-016",
+            "weight": 19,
+            "profit": 597
+        },
+        {
+            "id": "ELEC-017",
+            "weight": 15,
+            "profit": 305
+        },
+        {
+            "id": "ELEC-018",
+            "weight": 15,
+            "profit": 524
+        },
+        {
+            "id": "ELEC-019",
+            "weight": 17,
+            "profit": 446
+        },
+        {
+            "id": "ELEC-020",
+            "weight": 12,
+            "profit": 392
+        },
+        {
+            "id": "ELEC-021",
+            "weight": 6,
+            "profit": 485
+        },
+        {
+            "id": "ELEC-022",
+            "weight": 17,
+            "profit": 180
+        },
+        {
+            "id": "ELEC-023",
+            "weight": 23,
+            "profit": 476
+        },
+        {
+            "id": "ELEC-024",
+            "weight": 7,
+            "profit": 345
+        },
+        {
+            "id": "ELEC-025",
+            "weight": 8,
+            "profit": 477
+        },
+        {
+            "id": "ELEC-026",
+            "weight": 15,
+            "profit": 411
+        },
+        {
+            "id": "ELEC-027",
+            "weight": 16,
+            "profit": 525
+        },
+        {
+            "id": "ELEC-028",
+            "weight": 7,
+            "profit": 226
+        },
+        {
+            "id": "ELEC-029",
+            "weight": 5,
+            "profit": 552
+        },
+        {
+            "id": "ELEC-030",
+            "weight": 13,
+            "profit": 337
+        },
+        {
+            "id": "ELEC-031",
+            "weight": 9,
+            "profit": 293
+        },
+        {
+            "id": "ELEC-032",
+            "weight": 13,
+            "profit": 424
+        },
+        {
+            "id": "ELEC-033",
+            "weight": 23,
+            "profit": 373
+        },
+        {
+            "id": "ELEC-034",
+            "weight": 5,
+            "profit": 256
+        },
+        {
+            "id": "ELEC-035",
+            "weight": 7,
+            "profit": 595
+        },
+        {
+            "id": "ELEC-036",
+            "weight": 25,
+            "profit": 215
+        },
+        {
+            "id": "ELEC-037",
+            "weight": 7,
+            "profit": 347
+        },
+        {
+            "id": "ELEC-038",
+            "weight": 6,
+            "profit": 116
+        },
+        {
+            "id": "ELEC-039",
+            "weight": 14,
+            "profit": 119
+        },
+        {
+            "id": "ELEC-040",
+            "weight": 22,
+            "profit": 570
+        },
+        {
+            "id": "ELEC-041",
+            "weight": 18,
+            "profit": 274
+        },
+        {
+            "id": "ELEC-042",
+            "weight": 17,
+            "profit": 388
+        },
+        {
+            "id": "ELEC-043",
+            "weight": 22,
+            "profit": 167
+        },
+        {
+            "id": "ELEC-044",
+            "weight": 12,
+            "profit": 533
+        },
+        {
+            "id": "ELEC-045",
+            "weight": 7,
+            "profit": 218
+        },
+        {
+            "id": "ELEC-046",
+            "weight": 25,
+            "profit": 333
+        },
+        {
+            "id": "ELEC-047",
+            "weight": 22,
+            "profit": 182
+        },
+        {
+            "id": "ELEC-048",
+            "weight": 11,
+            "profit": 322
+        },
+        {
+            "id": "ELEC-049",
+            "weight": 16,
+            "profit": 205
+        },
+        {
+            "id": "ELEC-050",
+            "weight": 18,
+            "profit": 401
+        },
+        {
+            "id": "ELEC-051",
+            "weight": 6,
+            "profit": 183
+        },
+        {
+            "id": "ELEC-052",
+            "weight": 11,
+            "profit": 376
+        },
+        {
+            "id": "ELEC-053",
+            "weight": 25,
+            "profit": 505
+        },
+        {
+            "id": "ELEC-054",
+            "weight": 10,
+            "profit": 371
+        },
+        {
+            "id": "ELEC-055",
+            "weight": 10,
+            "profit": 210
+        }
+    ]
+}

@@ -1,0 +1,280 @@
+{
+    "capacity": 800,
+    "packages": [
+        {
+            "id": "MED-001",
+            "weight": 12,
+            "profit": 364
+        },
+        {
+            "id": "MED-002",
+            "weight": 10,
+            "profit": 462
+        },
+        {
+            "id": "MED-003",
+            "weight": 16,
+            "profit": 325
+        },
+        {
+            "id": "MED-004",
+            "weight": 23,
+            "profit": 390
+        },
+        {
+            "id": "MED-005",
+            "weight": 25,
+            "profit": 339
+        },
+        {
+            "id": "MED-006",
+            "weight": 6,
+            "profit": 269
+        },
+        {
+            "id": "MED-007",
+            "weight": 12,
+            "profit": 111
+        },
+        {
+            "id": "MED-008",
+            "weight": 16,
+            "profit": 552
+        },
+        {
+            "id": "MED-009",
+            "weight": 14,
+            "profit": 552
+        },
+        {
+            "id": "MED-010",
+            "weight": 17,
+            "profit": 297
+        },
+        {
+            "id": "MED-011",
+            "weight": 25,
+            "profit": 362
+        },
+        {
+            "id": "MED-012",
+            "weight": 16,
+            "profit": 499
+        },
+        {
+            "id": "MED-013",
+            "weight": 7,
+            "profit": 413
+        },
+        {
+            "id": "MED-014",
+            "weight": 5,
+            "profit": 574
+        },
+        {
+            "id": "MED-015",
+            "weight": 22,
+            "profit": 566
+        },
+        {
+            "id": "MED-016",
+            "weight": 18,
+            "profit": 483
+        },
+        {
+            "id": "MED-017",
+            "weight": 15,
+            "profit": 515
+        },
+        {
+            "id": "MED-018",
+            "weight": 5,
+            "profit": 414
+        },
+        {
+            "id": "MED-019",
+            "weight": 25,
+            "profit": 106
+        },
+        {
+            "id": "MED-020",
+            "weight": 9,
+            "profit": 342
+        },
+        {
+            "id": "MED-021",
+            "weight": 15,
+            "profit": 586
+        },
+        {
+            "id": "MED-022",
+            "weight": 11,
+            "profit": 566
+        },
+        {
+            "id": "MED-023",
+            "weight": 17,
+            "profit": 336
+        },
+        {
+            "id": "MED-024",
+            "weight": 25,
+            "profit": 340
+        },
+        {
+            "id": "MED-025",
+            "weight": 16,
+            "profit": 431
+        },
+        {
+            "id": "MED-026",
+            "weight": 12,
+            "profit": 572
+        },
+        {
+            "id": "MED-027",
+            "weight": 24,
+            "profit": 105
+        },
+        {
+            "id": "MED-028",
+            "weight": 24,
+            "profit": 153
+        },
+        {
+            "id": "MED-029",
+            "weight": 11,
+            "profit": 170
+        },
+        {
+            "id": "MED-030",
+            "weight": 16,
+            "profit": 175
+        },
+        {
+            "id": "MED-031",
+            "weight": 19,
+            "profit": 412
+        },
+        {
+            "id": "MED-032",
+            "weight": 19,
+            "profit": 364
+        },
+        {
+            "id": "MED-033",
+            "weight": 9,
+            "profit": 547
+        },
+        {
+            "id": "MED-034",
+            "weight": 9,
+            "profit": 202
+        },
+        {
+            "id": "MED-035",
+            "weight": 6,
+            "profit": 490
+        },
+        {
+            "id": "MED-036",
+            "weight": 19,
+            "profit": 362
+        },
+        {
+            "id": "MED-037",
+            "weight": 18,
+            "profit": 384
+        },
+        {
+            "id": "MED-038",
+            "weight": 22,
+            "profit": 472
+        },
+        {
+            "id": "MED-039",
+            "weight": 17,
+            "profit": 523
+        },
+        {
+            "id": "MED-040",
+            "weight": 8,
+            "profit": 114
+        },
+        {
+            "id": "MED-041",
+            "weight": 7,
+            "profit": 390
+        },
+        {
+            "id": "MED-042",
+            "weight": 17,
+            "profit": 455
+        },
+        {
+            "id": "MED-043",
+            "weight": 22,
+            "profit": 467
+        },
+        {
+            "id": "MED-044",
+            "weight": 5,
+            "profit": 179
+        },
+        {
+            "id": "MED-045",
+            "weight": 20,
+            "profit": 212
+        },
+        {
+            "id": "MED-046",
+            "weight": 17,
+            "profit": 104
+        },
+        {
+            "id": "MED-047",
+            "weight": 7,
+            "profit": 536
+        },
+        {
+            "id": "MED-048",
+            "weight": 11,
+            "profit": 513
+        },
+        {
+            "id": "MED-049",
+            "weight": 15,
+            "profit": 415
+        },
+        {
+            "id": "MED-050",
+            "weight": 16,
+            "profit": 195
+        },
+        {
+            "id": "MED-051",
+            "weight": 14,
+            "profit": 385
+        },
+        {
+            "id": "MED-052",
+            "weight": 14,
+            "profit": 288
+        },
+        {
+            "id": "MED-053",
+            "weight": 6,
+            "profit": 110
+        },
+        {
+            "id": "MED-054",
+            "weight": 22,
+            "profit": 189
+        },
+        {
+            "id": "MED-055",
+            "weight": 9,
+            "profit": 188
+        }
+    ]
+}

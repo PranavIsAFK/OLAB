@@ -1,0 +1,280 @@
+{
+    "capacity": 2500,
+    "packages": [
+        {
+            "id": "FURN-001",
+            "weight": 6,
+            "profit": 528
+        },
+        {
+            "id": "FURN-002",
+            "weight": 16,
+            "profit": 441
+        },
+        {
+            "id": "FURN-003",
+            "weight": 18,
+            "profit": 477
+        },
+        {
+            "id": "FURN-004",
+            "weight": 6,
+            "profit": 512
+        },
+        {
+            "id": "FURN-005",
+            "weight": 15,
+            "profit": 474
+        },
+        {
+            "id": "FURN-006",
+            "weight": 11,
+            "profit": 246
+        },
+        {
+            "id": "FURN-007",
+            "weight": 17,
+            "profit": 367
+        },
+        {
+            "id": "FURN-008",
+            "weight": 11,
+            "profit": 185
+        },
+        {
+            "id": "FURN-009",
+            "weight": 12,
+            "profit": 124
+        },
+        {
+            "id": "FURN-010",
+            "weight": 24,
+            "profit": 436
+        },
+        {
+            "id": "FURN-011",
+            "weight": 21,
+            "profit": 513
+        },
+        {
+            "id": "FURN-012",
+            "weight": 9,
+            "profit": 466
+        },
+        {
+            "id": "FURN-013",
+            "weight": 14,
+            "profit": 577
+        },
+        {
+            "id": "FURN-014",
+            "weight": 13,
+            "profit": 263
+        },
+        {
+            "id": "FURN-015",
+            "weight": 10,
+            "profit": 210
+        },
+        {
+            "id": "FURN-016",
+            "weight": 9,
+            "profit": 178
+        },
+        {
+            "id": "FURN-017",
+            "weight": 20,
+            "profit": 580
+        },
+        {
+            "id": "FURN-018",
+            "weight": 6,
+            "profit": 152
+        },
+        {
+            "id": "FURN-019",
+            "weight": 14,
+            "profit": 329
+        },
+        {
+            "id": "FURN-020",
+            "weight": 15,
+            "profit": 209
+        },
+        {
+            "id": "FURN-021",
+            "weight": 13,
+            "profit": 259
+        },
+        {
+            "id": "FURN-022",
+            "weight": 16,
+            "profit": 116
+        },
+        {
+            "id": "FURN-023",
+            "weight": 14,
+            "profit": 160
+        },
+        {
+            "id": "FURN-024",
+            "weight": 6,
+            "profit": 164
+        },
+        {
+            "id": "FURN-025",
+            "weight": 13,
+            "profit": 439
+        },
+        {
+            "id": "FURN-026",
+            "weight": 8,
+            "profit": 332
+        },
+        {
+            "id": "FURN-027",
+            "weight": 8,
+            "profit": 198
+        },
+        {
+            "id": "FURN-028",
+            "weight": 20,
+            "profit": 552
+        },
+        {
+            "id": "FURN-029",
+            "weight": 20,
+            "profit": 164
+        },
+        {
+            "id": "FURN-030",
+            "weight": 5,
+            "profit": 567
+        },
+        {
+            "id": "FURN-031",
+            "weight": 22,
+            "profit": 528
+        },
+        {
+            "id": "FURN-032",
+            "weight": 10,
+            "profit": 128
+        },
+        {
+            "id": "FURN-033",
+            "weight": 23,
+            "profit": 565
+        },
+        {
+            "id": "FURN-034",
+            "weight": 11,
+            "profit": 559
+        },
+        {
+            "id": "FURN-035",
+            "weight": 11,
+            "profit": 561
+        },
+        {
+            "id": "FURN-036",
+            "weight": 9,
+            "profit": 298
+        },
+        {
+            "id": "FURN-037",
+            "weight": 20,
+            "profit": 485
+        },
+        {
+            "id": "FURN-038",
+            "weight": 13,
+            "profit": 159
+        },
+        {
+            "id": "FURN-039",
+            "weight": 14,
+            "profit": 508
+        },
+        {
+            "id": "FURN-040",
+            "weight": 10,
+            "profit": 302
+        },
+        {
+            "id": "FURN-041",
+            "weight": 7,
+            "profit": 197
+        },
+        {
+            "id": "FURN-042",
+            "weight": 23,
+            "profit": 591
+        },
+        {
+            "id": "FURN-043",
+            "weight": 10,
+            "profit": 145
+        },
+        {
+            "id": "FURN-044",
+            "weight": 16,
+            "profit": 569
+        },
+        {
+            "id": "FURN-045",
+            "weight": 24,
+            "profit": 424
+        },
+        {
+            "id": "FURN-046",
+            "weight": 24,
+            "profit": 383
+        },
+        {
+            "id": "FURN-047",
+            "weight": 5,
+            "profit": 177
+        },
+        {
+            "id": "FURN-048",
+            "weight": 8,
+            "profit": 150
+        },
+        {
+            "id": "FURN-049",
+            "weight": 14,
+            "profit": 136
+        },
+        {
+            "id": "FURN-050",
+            "weight": 6,
+            "profit": 418
+        },
+        {
+            "id": "FURN-051",
+            "weight": 24,
+            "profit": 238
+        },
+        {
+            "id": "FURN-052",
+            "weight": 22,
+            "profit": 231
+        },
+        {
+            "id": "FURN-053",
+            "weight": 14,
+            "profit": 109
+        },
+        {
+            "id": "FURN-054",
+            "weight": 23,
+            "profit": 324
+        },
+        {
+            "id": "FURN-055",
+            "weight": 17,
+            "profit": 541
+        }
+    ]
+}

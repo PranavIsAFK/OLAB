@@ -1,0 +1,280 @@
+{
+    "capacity": 2000,
+    "packages": [
+        {
+            "id": "CONST-001",
+            "weight": 25,
+            "profit": 543
+        },
+        {
+            "id": "CONST-002",
+            "weight": 16,
+            "profit": 228
+        },
+        {
+            "id": "CONST-003",
+            "weight": 12,
+            "profit": 195
+        },
+        {
+            "id": "CONST-004",
+            "weight": 12,
+            "profit": 378
+        },
+        {
+            "id": "CONST-005",
+            "weight": 23,
+            "profit": 525
+        },
+        {
+            "id": "CONST-006",
+            "weight": 17,
+            "profit": 505
+        },
+        {
+            "id": "CONST-007",
+            "weight": 15,
+            "profit": 477
+        },
+        {
+            "id": "CONST-008",
+            "weight": 13,
+            "profit": 243
+        },
+        {
+            "id": "CONST-009",
+            "weight": 18,
+            "profit": 281
+        },
+        {
+            "id": "CONST-010",
+            "weight": 8,
+            "profit": 441
+        },
+        {
+            "id": "CONST-011",
+            "weight": 16,
+            "profit": 120
+        },
+        {
+            "id": "CONST-012",
+            "weight": 12,
+            "profit": 378
+        },
+        {
+            "id": "CONST-013",
+            "weight": 14,
+            "profit": 389
+        },
+        {
+            "id": "CONST-014",
+            "weight": 14,
+            "profit": 113
+        },
+        {
+            "id": "CONST-015",
+            "weight": 8,
+            "profit": 478
+        },
+        {
+            "id": "CONST-016",
+            "weight": 9,
+            "profit": 239
+        },
+        {
+            "id": "CONST-017",
+            "weight": 8,
+            "profit": 477
+        },
+        {
+            "id": "CONST-018",
+            "weight": 18,
+            "profit": 132
+        },
+        {
+            "id": "CONST-019",
+            "weight": 20,
+            "profit": 111
+        },
+        {
+            "id": "CONST-020",
+            "weight": 11,
+            "profit": 524
+        },
+        {
+            "id": "CONST-021",
+            "weight": 16,
+            "profit": 244
+        },
+        {
+            "id": "CONST-022",
+            "weight": 18,
+            "profit": 587
+        },
+        {
+            "id": "CONST-023",
+            "weight": 6,
+            "profit": 497
+        },
+        {
+            "id": "CONST-024",
+            "weight": 11,
+            "profit": 426
+        },
+        {
+            "id": "CONST-025",
+            "weight": 22,
+            "profit": 260
+        },
+        {
+            "id": "CONST-026",
+            "weight": 8,
+            "profit": 203
+        },
+        {
+            "id": "CONST-027",
+            "weight": 6,
+            "profit": 354
+        },
+        {
+            "id": "CONST-028",
+            "weight": 5,
+            "profit": 324
+        },
+        {
+            "id": "CONST-029",
+            "weight": 25,
+            "profit": 535
+        },
+        {
+            "id": "CONST-030",
+            "weight": 7,
+            "profit": 270
+        },
+        {
+            "id": "CONST-031",
+            "weight": 6,
+            "profit": 169
+        },
+        {
+            "id": "CONST-032",
+            "weight": 23,
+            "profit": 419
+        },
+        {
+            "id": "CONST-033",
+            "weight": 12,
+            "profit": 336
+        },
+        {
+            "id": "CONST-034",
+            "weight": 23,
+            "profit": 392
+        },
+        {
+            "id": "CONST-035",
+            "weight": 21,
+            "profit": 186
+        },
+        {
+            "id": "CONST-036",
+            "weight": 6,
+            "profit": 356
+        },
+        {
+            "id": "CONST-037",
+            "weight": 11,
+            "profit": 539
+        },
+        {
+            "id": "CONST-038",
+            "weight": 7,
+            "profit": 165
+        },
+        {
+            "id": "CONST-039",
+            "weight": 13,
+            "profit": 374
+        },
+        {
+            "id": "CONST-040",
+            "weight": 12,
+            "profit": 181
+        },
+        {
+            "id": "CONST-041",
+            "weight": 6,
+            "profit": 471
+        },
+        {
+            "id": "CONST-042",
+            "weight": 16,
+            "profit": 244
+        },
+        {
+            "id": "CONST-043",
+            "weight": 24,
+            "profit": 233
+        },
+        {
+            "id": "CONST-044",
+            "weight": 14,
+            "profit": 351
+        },
+        {
+            "id": "CONST-045",
+            "weight": 23,
+            "profit": 567
+        },
+        {
+            "id": "CONST-046",
+            "weight": 9,
+            "profit": 299
+        },
+        {
+            "id": "CONST-047",
+            "weight": 11,
+            "profit": 213
+        },
+        {
+            "id": "CONST-048",
+            "weight": 14,
+            "profit": 443
+        },
+        {
+            "id": "CONST-049",
+            "weight": 18,
+            "profit": 253
+        },
+        {
+            "id": "CONST-050",
+            "weight": 24,
+            "profit": 561
+        },
+        {
+            "id": "CONST-051",
+            "weight": 17,
+            "profit": 313
+        },
+        {
+            "id": "CONST-052",
+            "weight": 18,
+            "profit": 216
+        },
+        {
+            "id": "CONST-053",
+            "weight": 8,
+            "profit": 161
+        },
+        {
+            "id": "CONST-054",
+            "weight": 9,
+            "profit": 421
+        },
+        {
+            "id": "CONST-055",
+            "weight": 16,
+            "profit": 108
+        }
+    ]
+}

@@ -1,0 +1,280 @@
+{
+    "capacity": 900,
+    "packages": [
+        {
+            "id": "TEX-001",
+            "weight": 12,
+            "profit": 124
+        },
+        {
+            "id": "TEX-002",
+            "weight": 25,
+            "profit": 245
+        },
+        {
+            "id": "TEX-003",
+            "weight": 21,
+            "profit": 120
+        },
+        {
+            "id": "TEX-004",
+            "weight": 6,
+            "profit": 395
+        },
+        {
+            "id": "TEX-005",
+            "weight": 16,
+            "profit": 295
+        },
+        {
+            "id": "TEX-006",
+            "weight": 9,
+            "profit": 446
+        },
+        {
+            "id": "TEX-007",
+            "weight": 21,
+            "profit": 497
+        },
+        {
+            "id": "TEX-008",
+            "weight": 24,
+            "profit": 510
+        },
+        {
+            "id": "TEX-009",
+            "weight": 10,
+            "profit": 364
+        },
+        {
+            "id": "TEX-010",
+            "weight": 6,
+            "profit": 180
+        },
+        {
+            "id": "TEX-011",
+            "weight": 13,
+            "profit": 161
+        },
+        {
+            "id": "TEX-012",
+            "weight": 21,
+            "profit": 169
+        },
+        {
+            "id": "TEX-013",
+            "weight": 9,
+            "profit": 539
+        },
+        {
+            "id": "TEX-014",
+            "weight": 11,
+            "profit": 359
+        },
+        {
+            "id": "TEX-015",
+            "weight": 25,
+            "profit": 215
+        },
+        {
+            "id": "TEX-016",
+            "weight": 10,
+            "profit": 147
+        },
+        {
+            "id": "TEX-017",
+            "weight": 19,
+            "profit": 408
+        },
+        {
+            "id": "TEX-018",
+            "weight": 17,
+            "profit": 196
+        },
+        {
+            "id": "TEX-019",
+            "weight": 16,
+            "profit": 150
+        },
+        {
+            "id": "TEX-020",
+            "weight": 5,
+            "profit": 214
+        },
+        {
+            "id": "TEX-021",
+            "weight": 11,
+            "profit": 437
+        },
+        {
+            "id": "TEX-022",
+            "weight": 10,
+            "profit": 163
+        },
+        {
+            "id": "TEX-023",
+            "weight": 10,
+            "profit": 227
+        },
+        {
+            "id": "TEX-024",
+            "weight": 17,
+            "profit": 521
+        },
+        {
+            "id": "TEX-025",
+            "weight": 23,
+            "profit": 358
+        },
+        {
+            "id": "TEX-026",
+            "weight": 13,
+            "profit": 331
+        },
+        {
+            "id": "TEX-027",
+            "weight": 6,
+            "profit": 377
+        },
+        {
+            "id": "TEX-028",
+            "weight": 6,
+            "profit": 216
+        },
+        {
+            "id": "TEX-029",
+            "weight": 20,
+            "profit": 199
+        },
+        {
+            "id": "TEX-030",
+            "weight": 22,
+            "profit": 244
+        },
+        {
+            "id": "TEX-031",
+            "weight": 10,
+            "profit": 484
+        },
+        {
+            "id": "TEX-032",
+            "weight": 24,
+            "profit": 115
+        },
+        {
+            "id": "TEX-033",
+            "weight": 16,
+            "profit": 202
+        },
+        {
+            "id": "TEX-034",
+            "weight": 10,
+            "profit": 517
+        },
+        {
+            "id": "TEX-035",
+            "weight": 20,
+            "profit": 108
+        },
+        {
+            "id": "TEX-036",
+            "weight": 13,
+            "profit": 434
+        },
+        {
+            "id": "TEX-037",
+            "weight": 8,
+            "profit": 275
+        },
+        {
+            "id": "TEX-038",
+            "weight": 5,
+            "profit": 299
+        },
+        {
+            "id": "TEX-039",
+            "weight": 25,
+            "profit": 215
+        },
+        {
+            "id": "TEX-040",
+            "weight": 5,
+            "profit": 570
+        },
+        {
+            "id": "TEX-041",
+            "weight": 12,
+            "profit": 447
+        },
+        {
+            "id": "TEX-042",
+            "weight": 22,
+            "profit": 319
+        },
+        {
+            "id": "TEX-043",
+            "weight": 25,
+            "profit": 506
+        },
+        {
+            "id": "TEX-044",
+            "weight": 16,
+            "profit": 110
+        },
+        {
+            "id": "TEX-045",
+            "weight": 13,
+            "profit": 466
+        },
+        {
+            "id": "TEX-046",
+            "weight": 14,
+            "profit": 520
+        },
+        {
+            "id": "TEX-047",
+            "weight": 23,
+            "profit": 522
+        },
+        {
+            "id": "TEX-048",
+            "weight": 14,
+            "profit": 221
+        },
+        {
+            "id": "TEX-049",
+            "weight": 9,
+            "profit": 233
+        },
+        {
+            "id": "TEX-050",
+            "weight": 25,
+            "profit": 452
+        },
+        {
+            "id": "TEX-051",
+            "weight": 24,
+            "profit": 392
+        },
+        {
+            "id": "TEX-052",
+            "weight": 12,
+            "profit": 524
+        },
+        {
+            "id": "TEX-053",
+            "weight": 8,
+            "profit": 473
+        },
+        {
+            "id": "TEX-054",
+            "weight": 12,
+            "profit": 295
+        },
+        {
+            "id": "TEX-055",
+            "weight": 25,
+            "profit": 270
+        }
+    ]
+}

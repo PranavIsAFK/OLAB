@@ -1,0 +1,280 @@
+{
+    "capacity": 1500,
+    "packages": [
+        {
+            "id": "AUTO-001",
+            "weight": 23,
+            "profit": 220
+        },
+        {
+            "id": "AUTO-002",
+            "weight": 12,
+            "profit": 248
+        },
+        {
+            "id": "AUTO-003",
+            "weight": 7,
+            "profit": 457
+        },
+        {
+            "id": "AUTO-004",
+            "weight": 24,
+            "profit": 575
+        },
+        {
+            "id": "AUTO-005",
+            "weight": 22,
+            "profit": 469
+        },
+        {
+            "id": "AUTO-006",
+            "weight": 11,
+            "profit": 573
+        },
+        {
+            "id": "AUTO-007",
+            "weight": 10,
+            "profit": 135
+        },
+        {
+            "id": "AUTO-008",
+            "weight": 6,
+            "profit": 575
+        },
+        {
+            "id": "AUTO-009",
+            "weight": 5,
+            "profit": 460
+        },
+        {
+            "id": "AUTO-010",
+            "weight": 21,
+            "profit": 322
+        },
+        {
+            "id": "AUTO-011",
+            "weight": 14,
+            "profit": 122
+        },
+        {
+            "id": "AUTO-012",
+            "weight": 6,
+            "profit": 137
+        },
+        {
+            "id": "AUTO-013",
+            "weight": 12,
+            "profit": 262
+        },
+        {
+            "id": "AUTO-014",
+            "weight": 17,
+            "profit": 546
+        },
+        {
+            "id": "AUTO-015",
+            "weight": 14,
+            "profit": 569
+        },
+        {
+            "id": "AUTO-016",
+            "weight": 6,
+            "profit": 322
+        },
+        {
+            "id": "AUTO-017",
+            "weight": 6,
+            "profit": 260
+        },
+        {
+            "id": "AUTO-018",
+            "weight": 10,
+            "profit": 149
+        },
+        {
+            "id": "AUTO-019",
+            "weight": 6,
+            "profit": 215
+        },
+        {
+            "id": "AUTO-020",
+            "weight": 14,
+            "profit": 523
+        },
+        {
+            "id": "AUTO-021",
+            "weight": 11,
+            "profit": 494
+        },
+        {
+            "id": "AUTO-022",
+            "weight": 20,
+            "profit": 516
+        },
+        {
+            "id": "AUTO-023",
+            "weight": 6,
+            "profit": 573
+        },
+        {
+            "id": "AUTO-024",
+            "weight": 10,
+            "profit": 308
+        },
+        {
+            "id": "AUTO-025",
+            "weight": 17,
+            "profit": 352
+        },
+        {
+            "id": "AUTO-026",
+            "weight": 15,
+            "profit": 211
+        },
+        {
+            "id": "AUTO-027",
+            "weight": 19,
+            "profit": 122
+        },
+        {
+            "id": "AUTO-028",
+            "weight": 11,
+            "profit": 426
+        },
+        {
+            "id": "AUTO-029",
+            "weight": 15,
+            "profit": 200
+        },
+        {
+            "id": "AUTO-030",
+            "weight": 15,
+            "profit": 381
+        },
+        {
+            "id": "AUTO-031",
+            "weight": 22,
+            "profit": 499
+        },
+        {
+            "id": "AUTO-032",
+            "weight": 7,
+            "profit": 588
+        },
+        {
+            "id": "AUTO-033",
+            "weight": 6,
+            "profit": 367
+        },
+        {
+            "id": "AUTO-034",
+            "weight": 16,
+            "profit": 514
+        },
+        {
+            "id": "AUTO-035",
+            "weight": 21,
+            "profit": 309
+        },
+        {
+            "id": "AUTO-036",
+            "weight": 18,
+            "profit": 540
+        },
+        {
+            "id": "AUTO-037",
+            "weight": 14,
+            "profit": 556
+        },
+        {
+            "id": "AUTO-038",
+            "weight": 16,
+            "profit": 225
+        },
+        {
+            "id": "AUTO-039",
+            "weight": 14,
+            "profit": 314
+        },
+        {
+            "id": "AUTO-040",
+            "weight": 14,
+            "profit": 247
+        },
+        {
+            "id": "AUTO-041",
+            "weight": 8,
+            "profit": 486
+        },
+        {
+            "id": "AUTO-042",
+            "weight": 5,
+            "profit": 322
+        },
+        {
+            "id": "AUTO-043",
+            "weight": 19,
+            "profit": 136
+        },
+        {
+            "id": "AUTO-044",
+            "weight": 6,
+            "profit": 303
+        },
+        {
+            "id": "AUTO-045",
+            "weight": 12,
+            "profit": 556
+        },
+        {
+            "id": "AUTO-046",
+            "weight": 6,
+            "profit": 363
+        },
+        {
+            "id": "AUTO-047",
+            "weight": 7,
+            "profit": 140
+        },
+        {
+            "id": "AUTO-048",
+            "weight": 5,
+            "profit": 473
+        },
+        {
+            "id": "AUTO-049",
+            "weight": 22,
+            "profit": 150
+        },
+        {
+            "id": "AUTO-050",
+            "weight": 17,
+            "profit": 176
+        },
+        {
+            "id": "AUTO-051",
+            "weight": 18,
+            "profit": 425
+        },
+        {
+            "id": "AUTO-052",
+            "weight": 14,
+            "profit": 340
+        },
+        {
+            "id": "AUTO-053",
+            "weight": 12,
+            "profit": 163
+        },
+        {
+            "id": "AUTO-054",
+            "weight": 18,
+            "profit": 454
+        },
+        {
+            "id": "AUTO-055",
+            "weight": 17,
+            "profit": 545
+        }
+    ]
+}
