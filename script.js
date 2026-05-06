@@ -31,12 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initializeApp() {
-    initMap();
-    loadSampleData();
-    setupEventListeners();
-}
-
-function initializeApp() {
     loadSampleData();
     setupEventListeners();
 }
