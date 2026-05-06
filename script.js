@@ -362,7 +362,6 @@ async function optimizeLoad() {
     const efficiency = ((totalWeight / capacity) * 100).toFixed(1);
 
     renderResults(result.maxProfit, totalWeight, efficiency);
-    renderDPTable(capacity);
 
     // TSP Optimization for the selected items
     if (selectedPackages.length > 0) {
@@ -371,7 +370,6 @@ async function optimizeLoad() {
     }
 
     document.getElementById('resultsSection').classList.remove('hidden');
-    document.getElementById('dpTableSection').classList.remove('hidden');
 
     showNotification('Dispatch optimization complete!', 'success');
     window.scrollTo({ top: document.getElementById('resultsSection').offsetTop - 100, behavior: 'smooth' });
